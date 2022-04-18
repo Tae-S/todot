@@ -1,38 +1,166 @@
-.App {
-  text-align: center;
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-form{
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* border:1px solid black; */
+  height: auto;
+}
+
+input::placeholder{
+  text-align: center;
+  color: #999;
+}
+
+.todo-form > input[type="text"]{
+  border:none;
+  outline:none;
+  padding:5px;
+  color: #666;
+  letter-spacing: 1px;
+  border-radius: 0.65em;
+  
+  /* add font-family | maybe addd a plus button that pens up a modal */
+}
+
+.todo-form > input[name="title"]{
+  min-width: 20%;
+  max-width: 25%;
+}
+
+.todo-form > input[name="description"]{
+  min-width: 55%;
+  max-width: 58%;
+}
+
+.btn{
+  outline:none;
+  border:none;
+  padding:10px;
+  letter-spacing: 1px;
+  border-radius: 0.25em;
+  background: #24a0ed;
+  color:white;
+  cursor: pointer;
+}
+
+.btn:focus{
+  color: #ddd;
+  background: #2196df;
+}
+
+/* DEF: Home styles */
+
+.view > p{
+  /* border:1px solid orange; */
+  display:inline-block;
+}
+
+.admin-clear-btn{
+  font-size: 0.8rem;
+  min-width:fit-content;
+}
+
+.app{
+  /* border: 2px solid blue; */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  text-align:center;
+  column-gap: 10px;
+  row-gap:-10px;
+  margin-top: 3em;
+  margin-left:3em;
+}
+
+.item{
+  /* border:1px solid black; */
+  padding:10px 15px;
+  position: relative;
+  background: #222231;
+  color: rgb(181, 228, 88);
+  border-radius: 12px;
+  /* border-radius: 20px; */
+  margin-bottom:10px;
+  display:flex;
   flex-direction: column;
+  flex-wrap:nowrap;
+  overflow-y: auto;
+}
+
+.item::-webkit-scrollbar-track {
+  /* border: 1px solid #000; */
+  padding: 2px 0;
+  background-color: #404040;
+}
+
+.item::-webkit-scrollbar {
+  width: 10px;
+}
+
+.item::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #737272;
+  /* border: 1px solid #000; */
+}
+
+/* #FF8686 */
+.item-toolbar{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 24px;
+  /* border:1px solid red; */
+  background: #404040;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  display: flex; 
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.item > p:nth-child(1){
+  margin-top: 15px;
+  overflow-wrap: break-word;
+  text-overflow:ellipsis;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.item > p:nth-child(2){
+  overflow-wrap: break-word;
+  text-overflow:ellipsis;
+}
+
+.item-toolbar > img{
+  /* border: 1px solid white; */
+  cursor: pointer;
+}
+
+.pin{
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: visible;
+  transition: all 0.3s ease-in-out;
+  width:24px;
+}
+
+.item-toolbar input{
+  width:22px;
+  height:24px;
+}
+
+.item:hover .pin{
+  opacity: 1;
+  visibility: visible;
+}
+
+.do-not{
+  text-decoration:line-through;
+  color:#efefef;
 }

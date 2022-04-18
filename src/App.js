@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// TODO: custom checkbox while displaying todos | Bold Italic text formatting panel | error panel top of the page to display user-friendly messages
+import './App.css'
+
+// ADDED: component imports
+import Todo from './Components/Todo'
+import View from './Components/View'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 style={{'margin':'0.5em'}}>Todot: Track your todos!</h1>
+      <Todo />
+      <View />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
